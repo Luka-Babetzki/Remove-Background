@@ -37,4 +37,3 @@ A simple Python script to remove the background from an image using OpenCV's Gra
 
 - Adjust the rectangle in the script if the subject is not properly detected.
 - The script works best with images where the subject is clearly separated from the background.
-

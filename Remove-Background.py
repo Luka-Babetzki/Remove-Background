@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-###### [1] - Opening and Displaying the Original Image ######
+# ****** Opening and Displaying the Original Image ******
 
 img = cv2.imread('C:/path/to/your/image.png')  # Replace with your image path
 if img is None:
@@ -12,7 +12,7 @@ cv2.imshow("Input_Image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-###### [2] - Detecting and Masking the subject ######
+# ****** Detecting and Masking the subject ******
 
 test_mask = np.zeros(img.shape[:2], np.uint8)
 
@@ -27,7 +27,7 @@ cv2.grabCut(img, test_mask, rect, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_RECT)
 # Refine mask
 test_mask = np.where((test_mask == cv2.GC_PR_BGD) | (test_mask == cv2.GC_BGD), 0, 1).astype('uint8')
 
-###### [3] - Applying the Mask ######
+# ****** Applying the Mask ******
 
 img = img * test_mask[:, :, np.newaxis]
 
